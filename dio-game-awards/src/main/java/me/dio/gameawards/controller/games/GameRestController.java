@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,27 +20,26 @@ import me.dio.gameawards.service.GameService;
 
 @CrossOrigin
 @RestController
-public class GameRestController extends BaseRestController{
+public class GameRestController extends BaseRestController {
 	
 	@Autowired
 	private GameService businessLayer;
-	
+
 	@GetMapping("games")
 	public ResponseEntity<List<Game>> findAll() {
 		return ResponseEntity.ok(this.businessLayer.findAll());
 	}
-	
-	@GetMapping("games/{id}")
-	public ResponseEntity<Game> findById(@PathVariable Long id) {
-		return ResponseEntity.ok(this.businessLayer.findById(id));
-	}
-	
+
 	/**@PatchMapping("games/{id}/vote")
 	public ResponseEntity<Void> vote(@PathVariable Long id) {
 		this.businessLayer.vote(id);
 		return ResponseEntity.ok().build();
 	}**/
 	
+	@GetMapping("games/{id}")
+	public ResponseEntity<Game> findById(@PathVariable Long id) {
+		return ResponseEntity.ok(this.businessLayer.findById(id));
+	}
 	
 	@PostMapping("games")
 	public ResponseEntity<Game> insert(@RequestBody Game game) {
@@ -61,8 +59,4 @@ public class GameRestController extends BaseRestController{
 		return ResponseEntity.ok().build();
 	}
 
-	
-	
-
-	
 }

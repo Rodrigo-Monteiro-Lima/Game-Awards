@@ -1,4 +1,4 @@
-package me.dio.gameawards.service.exeption;
+package me.dio.gameawards.service.exception;
 
 public class NoContentException extends RuntimeException {
 	

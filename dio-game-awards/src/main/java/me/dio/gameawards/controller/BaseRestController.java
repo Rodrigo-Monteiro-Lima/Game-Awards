@@ -4,8 +4,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import me.dio.gameawards.service.exeption.BusinessException;
-import me.dio.gameawards.service.exeption.NoContentException;
+import me.dio.gameawards.service.exception.BusinessException;
+import me.dio.gameawards.service.exception.NoContentException;
 
 @RequestMapping("/api")
 public abstract class BaseRestController {
@@ -22,7 +22,7 @@ public abstract class BaseRestController {
 
 	@ExceptionHandler(Throwable.class)
 	private ResponseEntity<ApiErrorDTO> handlerUnexpectedException(Throwable e) {
-		e.printStackTrace();		
+		e.printStackTrace();
 		return ResponseEntity.internalServerError().body(new ApiErrorDTO("Ops, ocorreu um erro inesperado."));
 	}
 
