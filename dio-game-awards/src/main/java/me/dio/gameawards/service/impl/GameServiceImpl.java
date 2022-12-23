@@ -31,8 +31,7 @@ public class GameServiceImpl implements GameService{
 
 	@Override
 	public void insert(Game game) {
-		// TODO Auto-generated method stub
-		
+		repository.save(game);
 	}
 
 	@Override
