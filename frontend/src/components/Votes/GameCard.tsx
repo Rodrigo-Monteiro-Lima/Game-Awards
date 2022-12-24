@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, Button, Alert } from 'react-native';
 import { clientSendingVotes } from '../../api/api';
+import { gameInterface } from '../../interfaces/gameInterface';
 
 const sendingVote = (id:number) => {
   Alert.alert(
@@ -12,14 +13,14 @@ const sendingVote = (id:number) => {
   )
 };
 
-const GameCard = () => {
+const GameCard = (props: gameInterface | any) => {
   return (
-    <View style={styles.Cardcontainer}>
+    <View style={styles.Cardcontainer} key={props.id}>
       <View >
-        <Image source={{uri: ''}} style={styles.card}/>
+        <Image source={{uri: props.cover}} style={styles.card}/>
       </View>
       <View style={styles.infoContainer}>
-          <Text style={styles.label}>Pacman</Text>
+          <Text style={styles.label}>{props.name}</Text>
           <Button onPress={()=> sendingVote(props.id)} title='Vote' color='#9AC33CC'/>
       </View>
     </View>
