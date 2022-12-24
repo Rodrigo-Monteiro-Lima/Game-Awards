@@ -3,6 +3,7 @@ const baseApiURL= "http://zd-mvw.anonymous.frontend.exp.direct:8080/api/"
 export const clientGetGames = async () => {
   const response = await fetch(`${baseApiURL}games`);
   const json = await response.json();
+  console.log(json);
   return json;
 };
 
