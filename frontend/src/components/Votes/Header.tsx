@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import trophy from '../../imgs/trophy.png';
+import trophy from '../../../assets/trophy.png';
 
 const Header = () => {
   return (
