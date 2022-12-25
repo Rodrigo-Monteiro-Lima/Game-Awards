@@ -12,7 +12,7 @@
 
 <br>
 
-<p align="center">
+<p align="center" display="flex">
   <img alt="gow" src=".github/preview-ga1.png" width="50%">
   <img alt="gow" src=".github/preview-ga2.png" width="50%">
 </p>
