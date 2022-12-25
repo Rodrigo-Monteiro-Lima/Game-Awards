@@ -21,7 +21,7 @@ const GameCard = (props: gameInterface | any) => {
       </View>
       <View style={styles.infoContainer}>
           <Text style={styles.label}>{props.name}</Text>
-          <Button onPress={()=> sendingVote(props.id)} title='Vote' color='#9AC33CC'/>
+          <Button onPress={()=> sendingVote(props.id)} title='Vote' color="#9AC33C"/>
       </View>
     </View>
   )
