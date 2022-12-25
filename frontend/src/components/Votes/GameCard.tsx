@@ -3,15 +3,15 @@ import { StyleSheet, Text, View, Image, Button, Alert } from 'react-native';
 import { clientSendingVotes } from '../../api/api';
 import { gameInterface } from '../../interfaces/gameInterface';
 
-const sendingVote = (id:number) => {
+const sendingVote = (id:number)=>{
   Alert.alert(
     "Vote sent",
     "thanks for helping decide game of the year",
     [
       { text: "OK", onPress: () => clientSendingVotes(id) }
     ]
-  )
-};
+  );
+}
 
 const GameCard = (props: gameInterface | any) => {
   return (
@@ -21,7 +21,7 @@ const GameCard = (props: gameInterface | any) => {
       </View>
       <View style={styles.infoContainer}>
           <Text style={styles.label}>{props.name}</Text>
-          <Button onPress={()=> sendingVote(props.id)} title='Vote' color="#9AC33C"/>
+          <Button onPress={() => clientSendingVotes(props.id)} title='Vote' color="#9AC33C"/>
       </View>
     </View>
   )

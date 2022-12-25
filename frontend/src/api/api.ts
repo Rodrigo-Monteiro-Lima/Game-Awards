@@ -9,8 +9,9 @@ export const clientGetGames = async () => {
 export const clientSendingVotes = (id:number) => {
   const requestOptions = {
     method: 'PATCH',
+    // redirect: 'follow',
   };
-  
+  console.log(id);
   fetch(`${baseApiURL}games/${id}/vote`, requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))

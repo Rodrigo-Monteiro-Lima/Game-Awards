@@ -1,14 +1,16 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { gameInterface } from '../../interfaces/gameInterface';
 
-const Winner = () => {
+const Winner = (props: gameInterface | any) => {
   return (
-    <View>
+    <View style={styles.container}>
+      <Text style={styles.title}>{props.name}</Text>
       <Image 
-        source={{uri: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co4tt2.png'}}
+        source={{uri: props.cover}}
         style={styles.card} 
       />
-      <Text style={styles.gameLabel}>STRAY</Text>
+      <Text style={styles.gameLabel}>Votes: {props.votes}</Text>
       <Text style={styles.winnerLabel}>WINNER</Text>
     </View>
   )
@@ -21,16 +23,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#191919',
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
+    marginTop: 30,
   },
   img:{
     borderWidth:3,
     borderColor:'#fff',
-    borderRadius:30
+    borderRadius:30,
+    marginBottom: 40
+  },
+  title:{
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   gameLabel:{
     color:'#fff',
     textAlign:'center',
-    fontSize:22
+    fontSize:22,
+    marginTop: 10,
   },
   winnerLabel:{
     backgroundColor:'#0EC244',
@@ -39,7 +52,9 @@ const styles = StyleSheet.create({
     color:'#fff',
     fontWeight:'bold',
     fontSize:30,
-    paddig:10
+    width: '80%',
+    paddig:10,
+    marginTop: 10
   },
   card:{
     borderRadius:10,
