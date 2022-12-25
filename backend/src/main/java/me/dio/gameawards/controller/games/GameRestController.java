@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -30,11 +31,11 @@ public class GameRestController extends BaseRestController {
 		return ResponseEntity.ok(this.businessLayer.findAll());
 	}
 
-	/**@PatchMapping("games/{id}/vote")
+	@PatchMapping("games/{id}/vote")
 	public ResponseEntity<Void> vote(@PathVariable Long id) {
 		this.businessLayer.vote(id);
 		return ResponseEntity.ok().build();
-	}**/
+	}
 	
 	@GetMapping("games/{id}")
 	public ResponseEntity<Game> findById(@PathVariable Long id) {
